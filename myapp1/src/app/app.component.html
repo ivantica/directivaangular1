@@ -24,8 +24,28 @@
       <td colspan="2"><input type="button" name="enviar" value="Enviar" (click)="registrarUsuario()"></td>
     </tr>
   </table>
-
- <p *ngIf="registrado">{{mensaje}} con el nombre de {{nombre}} {{apellido}}</p>
-
-
 </form>
+
+<p *ngIf="registrado; else noRegistrado">{{mensaje}} con el nombre de {{nombre}} {{apellido}}</p>
+<ng-template #noRegistrado>
+  <p>no existe nadie registrado</p>
+</ng-template>
+
+<h1>Mis Pasiones</h1>
+<div *ngFor="let pasion of mispasiones">
+      {{pasion.titulo}}
+</div>
+
+
+
+<h1>Mis Emprendimientos</h1>
+
+<ul>
+  <li *ngFor="let empredimiento of misemprendimientos; let i=index">
+   {{i}}- {{empredimiento.titulo}}
+  </li>
+</ul>
+
+<ol>
+  <li *ngFor="let amor of misamores">{{amor.nombre}}</li>
+</ol>
